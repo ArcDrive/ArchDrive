@@ -1,24 +1,63 @@
-<script>
-  // Set the ArchDrive v1.0 Launch date
-  var launchDate = new Date("2025-09-24T18:00:00").getTime();
-
-  var timer = setInterval(function() {
-    let now = new Date().getTime();
-    let timeLeft = launchDate - now;
-
-    if (timeLeft > 0) {
-      let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML = 
-        days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s";
-    } else {
-      clearInterval(timer);
-      document.getElementById("countdown").innerHTML = "00:00:00:00";
-      document.getElementById("message").innerHTML = 
-        "✅ ArchDrive v1.0 is now LIVE!";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArchDrive – v1.0 Launch Countdown</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+      color: #00ffff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
     }
-  }, 1000);
-</script>
+    h2 {
+      margin-top: 60px;
+      font-size: 2rem;
+    }
+    #countdown {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 0px 0px 10px #00ffff, 0px 0px 20px #0088aa;
+      margin: 20px 0;
+    }
+    #message {
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🚀 ArchDrive v1.0 Launch Countdown</h2>
+  <h1 id="countdown"></h1>
+  <p id="message"></p>
+
+  <script>
+    // Set the ArchDrive v1.0 Launch date
+    var launchDate = new Date("2025-09-24T18:00:00").getTime();
+
+    var timer = setInterval(function() {
+      let now = new Date().getTime();
+      let timeLeft = launchDate - now;
+
+      if (timeLeft > 0) {
+        let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = 
+          days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s";
+      } else {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "00:00:00:00";
+        document.getElementById("message").innerHTML = "✅ ArchDrive v1.0 is now LIVE!";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
